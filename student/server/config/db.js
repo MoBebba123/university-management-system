@@ -11,7 +11,9 @@ const db = createPool({
 });
 
 const connectDB = async (req, res) => {
-  console.log("db connected");
+  db.on("connection", () => {
+    console.log("db connected");
+  });
 };
 db.on("error", (err) => {
   console.error("MySQL connection error:", err);
