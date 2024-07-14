@@ -1,0 +1,41 @@
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+}
+.addButton {
+  width: max-content;
+  align-self: flex-end;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 2px solid rgb(200, 200, 200);
+  letter-spacing: 1px;
+  font-family: sans-serif;
+  font-size: 0.8rem;
+}
+caption {
+  border: 2px solid rgb(200, 200, 200);
+  border-bottom: none;
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 1rem;
+}
+td,
+th {
+  border: 1px solid rgb(190, 190, 190);
+  padding: 5px 10px;
+}
+th [data-type="children"] {
+  border: none;
+}
+
+td {
+  text-align: center;
+}

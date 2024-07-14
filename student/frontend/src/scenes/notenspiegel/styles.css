@@ -1,0 +1,30 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+  }
+  
+  th,
+  td {
+    border: 1px solid;
+    border-right: none;
+    border-left: none;
+    padding: 8px; /* Adjust padding as needed */
+  }
+  
+  th:last-child,
+  td:last-child {
+    border-right: none; /* Remove right border for the last column */
+  }
+  
+  caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+    border: 1px solid white; /* Add any border styles you want for top, bottom, left */
+  }
+  
+  thead {
+    background-color: rgb(127, 147, 198);
+    position: sticky;
+    top: 0;
+  }
