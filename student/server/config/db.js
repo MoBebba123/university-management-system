@@ -11,7 +11,7 @@ const db = createPool({
 });
 
 const connectDB = async (req, res) => {
-  db.on("connection", () => {
+  db.once("connection", () => {
     console.log("db connected");
   });
 };

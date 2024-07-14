@@ -445,10 +445,11 @@ const cancelExam = (req, res) => {
       // todo: handle rücktritt fristen
       const sqlQuery = `
       UPDATE Notenspiegel SET vermerk='RT'  
-      WHERE pruefungsId="${examId}"
+      WHERE pruefungsId = ?
       ORDER BY created_at DESC
       LIMIT 1`;
-      db.query(sqlQuery, (err, data) => {
+      const params = [examId];
+      db.query(sqlQuery, params, (err, data) => {
         if (err)
           return res.status(500).json({
             succuss: false,
@@ -480,9 +481,9 @@ const getAnmeldeListe = (req, res) => {
   FROM Anmeldelisten an 
   LEFT JOIN Pruefungen p ON an.pruefungsId = p.id
   LEFT JOIN Professor pr ON pr.id = p.pruefer
-  WHERE studentId="${id}" `;
-
-  db.query(sqlQuery, (err, data) => {
+  WHERE studentId=? `;
+  const params = [id];
+  db.query(sqlQuery, params, (err, data) => {
     if (err) return res.status(500).send(err);
 
     if (data) {
