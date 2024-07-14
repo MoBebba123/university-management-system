@@ -4,7 +4,6 @@ import { connectDB, db } from "./config/db.js";
 import cookieParser from "cookie-parser";
 import errorMiddleware from "./middlewares/error.js";
 import fileUpload from "express-fileupload";
-import ipify from "ipify";
 import { readFile as _readFile } from "fs";
 import cors from "cors";
 import authRouter from "./routes/auth.js";
@@ -60,16 +59,6 @@ app.use("/api/student", studentRouter);
 app.use("/api/exam", examRouter);
 app.use("/api/anmeldeliste", ameldeListeRouter);
 app.use("/api/notenspiegel", notenspiegelRouter);
-app.get("/", async (req, res) => {
-  try {
-    const ipV4 = await ipify({ useIPv6: false });
-    const ipV6 = await ipify({ useIPv6: true });
-    res.json({ ipV4, ipV6 });
-  } catch (error) {
-    console.error("Error fetching IP address:", error);
-    res.status(500).json({ error: "Internal Server Error:" + error });
-  }
-});
 
 app.use(errorMiddleware);
 
